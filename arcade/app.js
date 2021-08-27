@@ -25,7 +25,6 @@ cell8.addEventListener("click", placeLetter);
 let cell9= document.getElementById("9"); 
 
 
-
 // PLAYER NAMES INPUT VALUES
 let player1= document.getElementById("player-input1");      // grab users name
 let player2= document.getElementById("player-input2");     // grab users name
@@ -59,13 +58,18 @@ inputButton.addEventListener("click", function(){     // function inputs names a
 // PART 2 START NEW GAME BUTTON GENERATES A RANDOM NUM 0 or 1 AND RANDOM PLAYER STARTS WITH RANDOM LETTER
 resetButton.addEventListener("click", function(){    // generate a new game
   let randomNum = Math.round(Math.random());     // generate random num 0 or 1
-  console.log("whats the random num" +randomNum);
+  console.log("whats the random num? " +randomNum);
   if(randomNum === 0){
-    gameData.playerInfo.currentPlayer=player1;      // current player gets player1
+    gameData.playerInfo.currentPlayer=1;      // current player gets player1
     //gameData.playerInfo.playerSymbol=gameData.playerInfo.playerSymbol[0];  // current player gets X
-    playerTurn.innerText = player1.value + "'s turn!";  // text player1 your turn
-    playerSymbol.innerText= "Your symbol is X DONT FORGET IT!!!"  // text symbol O
+    playerTurn.innerText = gameData.playerInfo.player1 + "'s turn!";  // text player1 your turn
+    playerSymbol.innerText= "Your symbol is X";  // text symbol x
                     // add an O where they click
+  }
+  else{
+    gameData.playerInfo.currentPlayer=2;
+    playerTurn.innerText = gameData.playerInfo.player2 + "'s turn!";
+    playerSymbol.innerText= "Your symbol is O";
   }
 })
 
