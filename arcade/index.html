@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <link rel = "stylesheet" href = "style.css"/>
+    <script src ="app.js" defer></script>
+</head>
+
+<body class="container">
+<div>
+
+    <!--     PLAYER INPUT ENTER NAMES AND RANDOM LINK -->
+        <div id="player-name-input">
+            Enter your names
+            <input id="player-input1" type="text">input1
+            <input id="player-input2" type="text">input2
+            <button id="input-name-button">Enter Names</button>
+            <a id="start-game" href="index.html">start game</a>
+        </div>
+    
+    <!--   PLAYERS MESSAGES AND TEXT   -->
+        <div>
+        <h1 id="game-title">Tic Tac Toe</h1>
+        <h2 id="players-turn">Player 1's turn</h2>
+        <h3 id="current-symbol">Your symbol is</h3>
+        <h3 id="win-lose-message">___</h3>
+        </div>
+
+    <!-- GAME BOARD!!!!! -->
+    <div id="game-board">   
+        <div class="box" id="1">_</div>
+        <div class="box" id="2">_</div>
+        <div class="box" id="3">_</div>
+        <div class="box" id="4">_</div>
+        <div class="box" id="5">_</div>
+        <div class="box" id="6">_</div>
+        <div class="box" id="7">_</div>
+        <div class="box" id="8">_</div>
+        <div class="box" id="9">_</div>
+    </div>
+
+    <!--   THE BUTTON TO START GAME -->
+    <div id="bottom-text">
+        <p id="">To play click start new game</p>
+        <button id="reset-button">start new game</button> 
+    </div>
+
+</div>
+
+</body>
+
+
+</html>
