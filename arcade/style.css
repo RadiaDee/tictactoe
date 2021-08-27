@@ -1,0 +1,53 @@
+* {
+    color:rgb(28, 20, 36);
+    box-sizing: border-box;  
+    background-color: rgb(71, 45, 45); 
+}
+
+h1 {
+    text-transform:uppercase;
+}
+
+h2 {
+    display:flex;
+    justify-content: flex-start;
+}
+
+#player-name-input {
+    background-color: burlywood;
+    position: absolute;
+    visibility: ;
+}
+
+.container {
+    display:flex;    /* center the entire screen */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:100vh;
+}
+
+#game-board{    
+    
+    display: grid;
+    grid-template-rows: repeat(3,1fr);   
+    grid-template-columns: repeat(3,1fr);
+    border:5px dashed black;
+    background-color: rgb(144, 117, 170);
+}
+
+.box {
+    font-size: 50px;
+    height:150px;
+    width:150px;
+    border: 1px solid black;
+    /* center the box content so the X and O are in the middle of it */
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+button {
+    background-color: cadetblue;
+
+}
