@@ -1,5 +1,5 @@
 * {
-    color:rgb(28, 20, 36);
+    color:rgb(202, 177, 228);
     box-sizing: border-box;  
     background-color: rgb(71, 45, 45); 
 }
@@ -14,9 +14,9 @@ h2 {
 }
 
 #player-name-input {
-    background-color: burlywood;
+    background-color: rgb(39, 30, 18);
     position: absolute;
-    visibility: ;
+    
 }
 
 .container {
