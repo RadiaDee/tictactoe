@@ -64,23 +64,33 @@ inputButton.addEventListener("click", function(){     // function inputs names a
 // PART 2 START-NEW-GAME BUTTON GENERATES A RANDOM NUM, SETS THE EVENTLISTENERS, THEN RANDOM PLAYER GETS ASSIGNED X OR O
 resetButton.addEventListener("click", function(){    // generate new game
   let randomNum = Math.round(Math.random());     // generate random num 0 or 1
-  console.log("whats the random num? " +randomNum);   
-
+  gameData.board = [null, null, null, null, null, null, null, null, null];
+  youWonMessage.innerText = "";
+  
   cell0.addEventListener("click", placeLetter); 
-  cell1.addEventListener("click", placeLetter); 
+  cell0.innerText="__";
+  cell1.addEventListener("click", placeLetter);
+  cell1.innerText="__"; 
   cell2.addEventListener("click", placeLetter); 
+  cell2.innerText="__";
   cell3.addEventListener("click", placeLetter); 
+  cell3.innerText="__";
   cell4.addEventListener("click", placeLetter); 
+  cell4.innerText="__";
   cell5.addEventListener("click", placeLetter); 
+  cell5.innerText="__";
   cell6.addEventListener("click", placeLetter); 
+  cell6.innerText="__";
   cell7.addEventListener("click", placeLetter); 
+  cell7.innerText="__";
   cell8.addEventListener("click", placeLetter); 
+  cell8.innerText="__";
 
   if(randomNum === 0){
     gameData.playerInfo.currentPlayer=1;      // assign current player to 1
     playerTurn.innerText = gameData.playerInfo.player1 + "'s turn!";  // update innerText to name s turn
     playerSymbol.innerText= "Your symbol is X";  // text symbol x
-                    // add an O where they click
+                    // add an X where they click
   }
   else{
     gameData.playerInfo.currentPlayer=2;     // otherwise if random num is 1 then make the current player 2
@@ -88,9 +98,9 @@ resetButton.addEventListener("click", function(){    // generate new game
     playerSymbol.innerText= "Your symbol is O";      // show the symbol O
   }
 
-  youWonMessage.innerText="___";
-  playerTurn.innerText = "Player's turn ";
-  playerSymbol.innerText = "Your symbol ";
+  // youWonMessage.innerText="___";
+  // playerTurn.innerText = "Player's turn ";
+  //playerSymbol.innerText = "Your symbol ";
 
 })
 
@@ -102,6 +112,8 @@ function placeLetter (event){   // click on box
   // if current player is 2 the node of the clicked cell gets an O inner text
     let currentPlayer = gameData.playerInfo.currentPlayer;   // store number into current player
     if (currentPlayer === 2){                       // if player 2 aka O
+      playerTurn.innerText = gameData.playerInfo.player1 + "'s turn!";
+      playerSymbol.innerText = "Your symbol is X";
       if(event.target.innerText ==="O" || event.target.innerText=== "X"){   // event target is element clicked on
       return;     // if there is something placed, exit the function dont change it
       }
@@ -112,6 +124,8 @@ function placeLetter (event){   // click on box
     }  // end of first if statement if current player is 2 add O
 
     else{     // otherwise if the current player is 1 add X
+      playerTurn.innerText = gameData.playerInfo.player2 + "'s turn!";
+      playerSymbol.innerText = "Your symbol is O";
       if(event.target.innerText ==="O" || event.target.innerText=== "X"){  
         return;
         }
@@ -136,7 +150,7 @@ function updateBoardData(event){    // tells you info of cell the user clicks on
   let clickedCellNum = clickedCell.id;  // string of id of cell clicked on
   let clickedCellNumber = Number(clickedCellNum);    // convert to number
   if (gameData.playerInfo.currentPlayer === 1){    // if the player is 1 X
-    gameData.board[clickedCellNumber] = "O";    // add O to the board?
+    gameData.board[clickedCellNumber] = "O";    // add O to the board array
     }
   else if(gameData.playerInfo.currentPlayer === 2) gameData.board[clickedCellNumber] = "X";  // if p2 add X
   console.log("here is the array " +gameData.board);  
@@ -155,11 +169,13 @@ function checkArray(array){           // check who won
     miniArrayRow1 += letter;
   }
   if (miniArrayRow1 == winningConditions[0]){
-    youWonMessage.innerText = "You Won Player X";
+    youWonMessage.innerText = "You Won " + gameData.playerInfo.player1;
+    playerTurn.innerText = "";
     stopGame();
   }
   if (miniArrayRow1 == winningConditions[1]){
-    youWonMessage.innerText = "You Won Player O";
+    youWonMessage.innerText = "You Won " + gameData.playerInfo.player2;
+    playerTurn.innerText = "";
     stopGame();
   }
 
@@ -172,11 +188,13 @@ function checkArray(array){           // check who won
     miniArrayRow2 += letter; 
   }
   if (miniArrayRow2 === winningConditions[0]){
-    youWonMessage.innerText = "You Won Player X";
+    youWonMessage.innerText = "You Won " + gameData.playerInfo.player1;
+    playerTurn.innerText = "";
     stopGame();
   }
   if (miniArrayRow2 === winningConditions[1]){
-    youWonMessage.innerText = "You Won Player O";
+    youWonMessage.innerText = "You Won " +gameData.playerInfo.player2;
+    playerTurn.innerText = "";
     stopGame();
   }
 
@@ -186,11 +204,13 @@ function checkArray(array){           // check who won
     miniArrayRow3 += letter; 
   }
   if (miniArrayRow3 === winningConditions[0]){
-    youWonMessage.innerText = "You Won Player X";
+    youWonMessage.innerText = "You Won " + gameData.playerInfo.player1;
+    playerTurn.innerText = "";
     stopGame();
   }
   if (miniArrayRow3 === winningConditions[1]){
-    youWonMessage.innerText = "You Won Player O";
+    youWonMessage.innerText = "You Won " + gameData.playerInfo.player2;
+    playerTurn.innerText = "";
     stopGame();
   }
 
@@ -200,11 +220,13 @@ function checkArray(array){           // check who won
     miniArrayCol1 += letter; 
   }
   if (miniArrayCol1 === winningConditions[0]){
-    youWonMessage.innerText = "You Won Player X";
+    youWonMessage.innerText = "You Won " + gameData.playerInfo.player1;
+    playerTurn.innerText = "";
     stopGame();
   }
   if (miniArrayCol1 === winningConditions[1]){
-    youWonMessage.innerText = "You Won Player O";
+    youWonMessage.innerText = "You Won " + gameData.playerInfo.player2;
+    playerTurn.innerText = "";
     stopGame();
   }
 
@@ -214,11 +236,13 @@ function checkArray(array){           // check who won
     miniArrayCol2 += letter; 
   }
   if (miniArrayCol2 === winningConditions[0]){
-    youWonMessage.innerText = "You Won Player X";
+    youWonMessage.innerText = "You Won " + gameData.playerInfo.player1;
+    playerTurn.innerText = "";
     stopGame();
   }
   if (miniArrayCol2 === winningConditions[1]){
-    youWonMessage.innerText = "You Won Player O";
+    youWonMessage.innerText = "You Won " +gameData.playerInfo.player2;
+    playerTurn.innerText = "";
     stopGame();
   }
 
@@ -228,11 +252,13 @@ function checkArray(array){           // check who won
     miniArrayCol3 += letter; 
   }
   if (miniArrayCol3 === winningConditions[0]){
-    youWonMessage.innerText = "You Won Player X";
+    youWonMessage.innerText = "You Won " +gameData.playerInfo.player1;
+    playerTurn.innerText = "";
     stopGame();
   }
   if (miniArrayCol3 === winningConditions[1]){
-    youWonMessage.innerText = "You Won Player O";
+    youWonMessage.innerText = "You Won " +gameData.playerInfo.player2;
+    playerTurn.innerText = "";
     stopGame();
   }
 
@@ -242,11 +268,13 @@ function checkArray(array){           // check who won
     miniArrayCross1 += letter; 
   }
   if (miniArrayCross1 === winningConditions[0]){
-    youWonMessage.innerText = "You Won Player X";
+    youWonMessage.innerText = "You Won " +gameData.playerInfo.player1;
+    playerTurn.innerText = "";
     stopGame();
   }
   if (miniArrayCross1 === winningConditions[1]){
-    youWonMessage.innerText = "You Won Player O";
+    youWonMessage.innerText = "You Won " +gameData.playerInfo.player2;
+    playerTurn.innerText = "";
     stopGame();
   }
 
@@ -256,11 +284,13 @@ function checkArray(array){           // check who won
     miniArrayCross2 += letter; 
   }
   if (miniArrayCross2 === winningConditions[0]){
-    youWonMessage.innerText = "You Won Player X";
+    youWonMessage.innerText = "You Won "+ gameData.playerInfo.player1;
+    playerTurn.innerText = "";
     stopGame();
   }
   if (miniArrayCross2 === winningConditions[1]){
-    youWonMessage.innerText = "You Won Player O";        // if any of these conditions are met then they won woo
+    youWonMessage.innerText = "You Won " +gameData.playerInfo.player2;        // if any of these conditions are met then they won woo
+    playerTurn.innerText = "";
     stopGame();
   }
 }
@@ -277,6 +307,7 @@ function stopGame(){
   cell6.removeEventListener("click", placeLetter); 
   cell7.removeEventListener("click", placeLetter); 
   cell8.removeEventListener("click", placeLetter);  
+  
 }
 
 
