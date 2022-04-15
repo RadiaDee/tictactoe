@@ -1,7 +1,7 @@
 * {
     color:rgb(26, 19, 34);
     box-sizing: border-box;  
-    background-color: rgb(111, 95, 175); 
+    background-color: rgb(167, 132, 223); 
 }
 
 h1 {
@@ -14,7 +14,7 @@ h2 {
 }
 
 #player-name-input {
-    background-color: rgb(148, 110, 209);
+    background-color: rgb(167, 132, 223);
     position: absolute;
     
 }
@@ -33,7 +33,7 @@ h2 {
     grid-template-rows: repeat(3,1fr);   
     grid-template-columns: repeat(3,1fr);
     border:5px solid black;
-    background-color: rgb(144, 117, 170);
+    background-color: rgb(177, 117, 170);
 }
 
 .box {
